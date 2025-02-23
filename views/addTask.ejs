@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+    <link rel="stylesheet" href="/addTask.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Add a New Task</h1>
+
+        <!-- Form to Add Task -->
+        <form id="taskForm" action="/add-task" method="POST">
+            <input type="text" class="task-input" id="taskTitle" name="title" placeholder="Enter task title" required>
+            <textarea class="task-textarea" id="taskDescription" name="description" placeholder="Enter task description"></textarea>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <a href="/tasks" class="btn">Back to Tasks</a>
+    </div>
+
+</body>
+</html>

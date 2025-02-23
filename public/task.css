@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: black;
+    position: relative;
+}
+
+/* Animated Background */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 0, 150, 0.3) 10%, transparent 70%), 
+                radial-gradient(circle, rgba(0, 255, 200, 0.3) 10%, transparent 70%);
+    background-size: 200% 200%;
+    animation: moveBg 8s infinite alternate;
+    z-index: -2;
+}
+
+@keyframes moveBg {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Floating Particles */
+body::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.pexels.com/photos/3832031/pexels-photo-3832031.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    animation: floatingParticles 15s linear infinite alternate;
+    z-index: -1;
+}
+
+@keyframes floatingParticles {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-50px); }
+}
+
+/* Task Container - Cards Layout */
+.task-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    width: 90%;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Task Box - Styled as Cards */
+.task-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+/* Hover Effect */
+.task-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Task Title */
+.task-box h3 {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* Task Description */
+.task-box p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+}
+
+/* View Task Button */
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: linear-gradient(90deg, #ff0099, #ff6600);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #ff6600, #ff0099);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .task-container {
+        grid-template-columns: 1fr;
+    }
+}

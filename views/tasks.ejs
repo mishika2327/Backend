@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/tasks.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Your Tasks</h1>
+
+        <div class="task-container">
+            <% if (tasks.length > 0) { %>
+                <% tasks.forEach(task => { %>
+                    <div class="task-box">
+                        <h3><%= task.title %></h3>
+                        <a href="/task?id=<%= task.id %>" class="btn">View Task</a>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No tasks yet. Add one below!</p>
+            <% } %>
+        </div>
+
+        <a href="/addTask" class="btn">Add New Task</a>
+    </div>
+
+</body>
+</html>
